@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đừng dỗi anh nhé Linh sinh gáiii</title>
+    <!-- Link to Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-image: url("./bg.png");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #fff;
+        font-family: "Arial", sans-serif;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Lớp phủ màu đen mờ */
+        z-index: 1; /* Đảm bảo lớp phủ ở trên nền nhưng dưới các phần tử khác */
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        color: #ff66b2;
+        z-index: 2; /* Đảm bảo chữ hiển thị trên lớp phủ */
+      }
+
+      .btn-custom {
+        background-color: #ff66b2;
+        color: white;
+        border-radius: 25px;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        margin: 10px;
+        transition: 0.3s ease;
+        z-index: 2; /* Đảm bảo nút hiển thị trên lớp phủ */
+      }
+
+      .btn-custom:hover {
+        background-color: #ff3385;
+        color: white;
+      }
+
+      .modal-content {
+        background-color: #ff99cc;
+        color: #ff3399;
+      }
+
+      .random-position {
+        position: absolute;
+      }
+
+      /* Cấu hình cho modal */
+      .modal-body {
+        text-align: center;
+        background-color: black;
+      }
+
+      .modal-header {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Đừng dỗi anh nhé Linh sinh gáiii</h1>
+
+    <!-- Button 1: "Rồi tạm tha á" -->
+    <button class="btn btn-custom" id="btnThankYou">Rồi tạm tha á</button>
+
+    <!-- Button 2: "Khôngggg" -->
+    <button class="btn btn-custom" id="btnNo">Khôngggg</button>
+
+    <!-- Modal -->
+    <div class="modal" tabindex="-1" id="thankYouModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Cảm ơn Linh nhé 😍💚</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Cảm ơn em đã tha cho anh :3</p>
+            <p>
+              <i class="fas fa-heart"></i> <i class="fas fa-smile"></i>
+              <i class="fas fa-cupid"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script: Bootstrap and custom JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      // Modal action
+      document
+        .getElementById("btnThankYou")
+        .addEventListener("click", function () {
+          $("#thankYouModal").modal("show");
+        });
+
+      // Mouse hover event for btnNo to move to a random position
+      document
+        .getElementById("btnNo")
+        .addEventListener("mouseover", function () {
+          const btn = document.getElementById("btnNo");
+          const randomX = Math.random() * (window.innerWidth - btn.offsetWidth);
+          const randomY =
+            Math.random() * (window.innerHeight - btn.offsetHeight);
+
+          btn.style.left = `${randomX}px`;
+          btn.style.top = `${randomY}px`;
+          btn.style.position = "absolute";
+        });
+    </script>
+  </body>
+</html>
